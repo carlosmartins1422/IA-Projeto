@@ -1,0 +1,50 @@
+TRABALHO DE IA 2026/27 — TO-DO LIST POR FASES
+Perseguição, interceção e coordenação em labirintos dinâmicos
+
+FASE 1 — FORMULAR O PROBLEMA E DEFINIR AS REGRAS
+[ ] Definir a representação do estado global: posições de drones/intrusos, bens, energia, estado das portas/barreiras e tempo.
+[ ] Definir estados iniciais, objetivos dos drones (captura/interceção) e objetivos dos intrusos (recolher bens e fugir), incluindo condições de fim da missão.
+[ ] Definir operadores de movimento, recolha, recarga e outros necessários, com pré-condições, efeitos e custos.
+[ ] Definir a função de custo da procura e como serão medidos tempo de captura, custo operacional e utilização de drones.
+[ ] Definir as regras temporais e de interação: velocidades diferentes, ordem das ações, deteção, captura, fuga, limites de duração e replaneamento.
+
+FASE 2 — CONSTRUIR O MAPA, OS AGENTES E A PROCURA BÁSICA
+[ ] Implementar o edifício como grafo de localizações e ligações com custos, incluindo portas, barreiras, bens, saídas e estações de recarga. (ambiente.py)
+[ ] Criar um cenário pequeno e estático com um drone e um intruso, com pelo menos uma rota de evacuação válida. (cenarios/01_basico.json)
+[ ] Implementar drones com posição, velocidade, autonomia e custo operacional, permitindo características distintas. (agentes.py)
+[ ] Implementar intrusos com posição, velocidade, bens recolhidos e objetivo de recolha/fuga. (agentes.py)
+[ ] Implementar BFS como algoritmo de procura não informada, devolvendo percurso, sucesso e nós explorados. (procura.py)
+[ ] Implementar A* como algoritmo de procura informada, com uma heurística de referência e custos de deslocação. (procura.py; heuristicas.py)
+[ ] Testar BFS e A* em grafos pequenos, incluindo caminhos indisponíveis e custos diferentes; não assumir que BFS minimiza custos variáveis. (testes/test_procura.py)
+[ ] Implementar perseguição direta simples como estratégia de referência dos drones. (coordenacao.py)
+
+FASE 3 — FAZER FUNCIONAR O SIMULADOR DINÂMICO
+[ ] Implementar o ciclo da simulação, com avanço do tempo e atualização da posição dos agentes de acordo com as respetivas velocidades. (simulacao.py)
+[ ] Implementar deteção de intrusos, recolha de bens, captura, fuga e resultados finais da missão. (simulacao.py)
+[ ] Implementar consumo de autonomia, custos de operação e deslocação/uso de estações de recarga; considerar a sua disponibilidade. (agentes.py; simulacao.py)
+[ ] Implementar eventos de abertura/fecho de portas e ativação de barreiras, produzindo bloqueios e alternativas de passagem. (ambiente.py; cenarios/02_dinamico.json)
+[ ] Garantir nos cenários dinâmicos a existência de uma rota de evacuação válida, mesmo quando ocorrem bloqueios temporários. (ambiente.py)
+[ ] Implementar replaneamento quando uma rota deixa de ser válida ou surgem novas informações sobre intrusos e obstáculos. (simulacao.py)
+[ ] Implementar pelo menos dois perfis de intrusos, com decisões diferentes sobre bens, evasão e fuga. (agentes.py)
+[ ] Simular pelo menos mais uma alteração relevante, por exemplo uma estação de recarga indisponível ou o aparecimento de um novo intruso durante a missão. (simulacao.py; cenarios/02_dinamico.json)
+
+FASE 4 — ACRESCENTAR COORDENAÇÃO E HEURÍSTICAS PRÓPRIAS
+[ ] Conceber e implementar UMA estratégia original de coordenação entre drones (por exemplo atribuir perseguidores e bloquear saídas), com decisão de tarefas e rotas. (coordenacao.py)
+[ ] Conceber, justificar e implementar DUAS heurísticas próprias e diferentes para apoiar a procura informada. (heuristicas.py)
+[ ] Integrar algoritmos, heurísticas e coordenação no simulador e testar múltiplos drones com características diferentes. (main.py; cenarios/03_cooperacao.json)
+
+FASE 5 — EXECUTAR AS EXPERIÊNCIAS E ANALISAR OS RESULTADOS
+[ ] Formular pelo menos TRÊS hipóteses de investigação mensuráveis sobre captura, custos, recursos, heurísticas ou coordenação. (experiencias.py; relatório)
+[ ] Preparar cenários e níveis de dificuldade variando número e distribuição de drones, perfis de intrusos, bens, velocidades e dinâmica do mapa. (cenarios/)
+[ ] Registar métricas: taxa de captura/fuga, tempo até captura, custos operacionais, drones usados, bens obtidos, replaneamentos e nós explorados. (experiencias.py)
+[ ] Permitir execuções repetidas com as mesmas configurações e sementes aleatórias, para tornar as comparações justas. (experiencias.py)
+[ ] Comparar BFS vs. A*, heurística de referência vs. DUAS próprias, perseguição direta vs. coordenação original e os DOIS perfis de intrusos. (experiencias.py)
+[ ] Guardar resultados e produzir tabelas ou gráficos simples; interpretar criticamente os resultados e validar ou refutar as TRÊS hipóteses. (experiencias.py; relatório)
+
+FASE 6 — TESTAR, DOCUMENTAR E ENTREGAR
+[ ] Testar casos-limite da procura: sem rota momentânea, rotas de diferentes custos, mudanças do grafo e validade dos caminhos. (testes/test_procura.py)
+[ ] Testar a simulação: colisões/capturas, fuga, recolha, velocidade, energia, recarga, perfis, alterações dinâmicas e replaneamento. (testes/test_simulacao.py)
+[ ] Confirmar que o programa executa facilmente a partir de um cenário, que é reproduzível e que o README explica os comandos necessários. (main.py; README.md)
+[ ] Escrever o relatório: formulação, pressupostos, grafo, algoritmos, DUAS heurísticas, coordenação original, simulação, cenários, metodologia, resultados, limitações e conclusões. (relatorio/)
+[ ] Inserir na PRIMEIRA página após a capa a avaliação pelos pares (delta de cada elemento; soma = 0,00) e incluir as declarações de integridade e de utilização de IA por TODOS os elementos. (relatorio/)
+[ ] Preparar uma demonstração/apresentação e compactar CÓDIGO + RELATÓRIO num único ficheiro IA-GRUPO[G] para submissão na Blackboard até 04/01/2027; apresentações de 11 a 15/01/2027.

@@ -1,0 +1,22 @@
+{
+  "_descricao": "ESQUELETO INCOMPLETO: partir do mapa base, adicionar abertura/fecho de portas ou barreiras; garantir evacuação possível; medir replaneamentos.",
+  "id": "dinamico",
+  "nivel": "medio",
+  "mapa": {
+    "nos": [],
+    "arestas": []
+  },
+  "portas": [],
+  "barreiras": [],
+  "bens": [],
+  "saidas": [],
+  "recargas": [],
+  "drones": [],
+  "intrusos": [],
+  "eventos": [],
+  "parametros": {
+    "passo_tempo": null,
+    "duracao_maxima": null,
+    "seed": null
+  }
+}

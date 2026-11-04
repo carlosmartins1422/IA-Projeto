@@ -1,0 +1,22 @@
+{
+  "_descricao": "ESQUELETO INCOMPLETO: incluir >=2 drones e perfis de intrusos diferentes, bens e saídas distribuídos; comparar perseguição simples vs coordenação.",
+  "id": "cooperacao",
+  "nivel": "dificil",
+  "mapa": {
+    "nos": [],
+    "arestas": []
+  },
+  "portas": [],
+  "barreiras": [],
+  "bens": [],
+  "saidas": [],
+  "recargas": [],
+  "drones": [],
+  "intrusos": [],
+  "eventos": [],
+  "parametros": {
+    "passo_tempo": null,
+    "duracao_maxima": null,
+    "seed": null
+  }
+}

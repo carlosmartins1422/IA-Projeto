@@ -1,0 +1,22 @@
+{
+  "_descricao": "ESQUELETO INCOMPLETO: criar um mapa pequeno, estático, com 1 drone, 1 intruso, bens, saída e recarga. Não é um cenário executável ainda.",
+  "id": "basico",
+  "nivel": "facil",
+  "mapa": {
+    "nos": [],
+    "arestas": []
+  },
+  "portas": [],
+  "barreiras": [],
+  "bens": [],
+  "saidas": [],
+  "recargas": [],
+  "drones": [],
+  "intrusos": [],
+  "eventos": [],
+  "parametros": {
+    "passo_tempo": null,
+    "duracao_maxima": null,
+    "seed": null
+  }
+}
