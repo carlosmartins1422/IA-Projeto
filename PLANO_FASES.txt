@@ -2,11 +2,11 @@ TRABALHO DE IA 2026/27 — TO-DO LIST POR FASES
 Perseguição, interceção e coordenação em labirintos dinâmicos
 
 FASE 1 — FORMULAR O PROBLEMA E DEFINIR AS REGRAS
-[ ] Definir a representação do estado global: posições de drones/intrusos, bens, energia, estado das portas/barreiras e tempo.
-[ ] Definir estados iniciais, objetivos dos drones (captura/interceção) e objetivos dos intrusos (recolher bens e fugir), incluindo condições de fim da missão.
-[ ] Definir operadores de movimento, recolha, recarga e outros necessários, com pré-condições, efeitos e custos.
-[ ] Definir a função de custo da procura e como serão medidos tempo de captura, custo operacional e utilização de drones.
-[ ] Definir as regras temporais e de interação: velocidades diferentes, ordem das ações, deteção, captura, fuga, limites de duração e replaneamento.
+[X] Definir a representação do estado global: posições de drones/intrusos, bens, energia, estado das portas/barreiras e tempo.
+[X] Definir estados iniciais, objetivos dos drones (captura/interceção) e objetivos dos intrusos (recolher bens e fugir), incluindo condições de fim da missão.
+[X] Definir operadores de movimento, recolha, recarga e outros necessários, com pré-condições, efeitos e custos.
+[X] Definir a função de custo da procura e como serão medidos tempo de captura, custo operacional e utilização de drones.
+[X] Definir as regras temporais e de interação: velocidades diferentes, ordem das ações, deteção, captura, fuga, limites de duração e replaneamento.
 
 FASE 2 — CONSTRUIR O MAPA, OS AGENTES E A PROCURA BÁSICA
 [ ] Implementar o edifício como grafo de localizações e ligações com custos, incluindo portas, barreiras, bens, saídas e estações de recarga. (ambiente.py)

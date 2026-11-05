@@ -1,0 +1,161 @@
+1º Topico
+    -Os drones sabem o mapa, entradas, saidas, estaçoes de recarga, estado atual das portas, bens do mapa e posicao de outros drones
+    - Em relacao aos intrusos, os drones sabem a sua posicao quando os deteta, se 1 drone detetar os intrusos, os outros todos ficam a saber tmb (a posicao dos intrusos), porque comunicam entre si
+    - em relacao a energia, é referente a bateria dos drones. A bateria obriga os drones a tomar decisoes, por exemplo, continuar a perseguir ou ir recarregar ? E quando um recarrega, quem cobre a sua zona ? 
+    - Podemos tambem fazer uma regra de seguranca, que é antes de aceitar uma tarefa ou continuar uma perseguicao, o drone verifica se tem bateria suficiente para chegar a estacao disponivel mais proxima, com uma pequena margem
+    - Quantos drones cabem numa estacao de carregamento ? Acho que é melhor so metermos 1
+
+em relacao ao estado real (simulador) podemos definir com estes parametros:
+    ->tempo
+    ->portas (aberta/fechada)
+    ->drones (posicao, energia e tarefa)
+    ->intrusos (posicao, bens levados, perfil, estado (ativo/capturado/fugido))
+    ->bens (ainda disponiveis)
+    ->estacoes de recarga
+
+    ultimo_avistamento (intruso)
+
+podemos meter os seguintes parametros para Drone: 
+    ->energia_atual
+    ->energia_max
+    ->consumo_movimento
+    ->consumo_parado
+
+parametros para estacao de carregamento:
+    ->drone_a_carregar (boolean) ? 
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2º Topico
+
+Estado inicial é a configuracao completa do mundo no inicio, e cada cenario define-a no seu JSON
+O que contem: 
+    - Tempo -> t = 0
+    - Portas e barreiras -> estado de cada uma: aberta/fechada e ativa/inativa
+    - Drones -> Posicao inicial, a energia (normalmente maxima), sem tarefa
+    - Intrusos (se tiverem presentes) -> Posicao, perfil, 0 bens, estado "ativo"
+    - Bens -> Todos disponiveis, cada um com um localizador e valor
+    - Estaçoes de recarga -> Disponiveis, sem drones a carregar
+
+
+Condicoes de fim
+
+A simulacao acaba quando se verifica uma destas situacoes:
+    ->Todos os intrusos estao resolvidos: cadsa um foi capturado ou fugiu, e nao ha mais intrusos
+    -> foi atingido o limite: t = duracao_maxima
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+3º Topico
+
+Os operadores sao acoes
+
+Operadores : (Dps ver com o grupo para ver se concordam)
+    - Mover(u->v) -> Pre condicao :
+                                  - Esta em u
+                                  - A aresta existe e esta livre
+                                  - Se for drone, tem energia para a travessia
+
+                    Efeitos : 
+                            - Fica em transito e chega a v
+
+                    Custo : 
+                            - Drone gasta energia e custo operacional
+                            - (comprimento / velocidade) passos
+
+    - Esperar ->    Pre condicao: 
+                                - Esta num no (drone)
+
+                    Efeitos : 
+                            - Fica no mesmo no
+
+                    Custo : 
+                            - 1 passo
+                            - Drone: consumo parado
+
+    - Recarregar (drone) -> Pre condicao:
+                                - Esta numa estacao livre e disponivel, com energia abaixo do maximo
+
+                            Efeitos : 
+                                    - Ocupa a estacao e ganha energia por passo
+
+                            Custo : 
+                                  - 1 passo por ciclo, mais o custo por recarga (se usarmos)
+
+    - recolher(b)(intrusos) -> Pre codicao : 
+                                        -> Esta no nó b e o bem esta disponivel
+
+                               Efeitos : 
+                                       -> passa a ter o bem, e este deixa o mapa
+
+                                Custo : 
+                                      -> nao sei, dps ver melhor com o grupo
+
+    - Fugir (intrusos) -> Pre condicao : 
+                                        -> Esta numa saida
+
+                          Efeito : 
+                                 -> Estado passa a "fugido" e sai da simulacao
+
+                          Custo : 
+                                -> nao sei, dps ver melhor com o grupo
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+4º Topico
+
+custo de procura é o tempo q um agente demora a percorrer um caminho, em passos
+Assim cada aresta custa ao agente o seu tempo de travessia, e o custo de um caminho é a soma das suas arestas
+
+custo(u -> v, agente) = ceil(comprimento(u,v) / velocidade(agente))
+(ceil = Round a number upward to its nearest integer)
+
+custo do caminho => g(caminho)= soma dos custos das arestas do caminho
+
+a procura deve encontrar o caminho com o menor g entre a posicao atual e o destino, usando so as arestas abertas no momento
+
+Esforco de procura -> é o trabalho do algoritmo, medido em nos explorados e tempo de execucao
+
+
+tempo de captura = passo de captura - passo de entrata
+conta a partir da entrada do intruso
+
+
+cada drone tem valores proprios
+custo_drone = custo_ativacao           (se o drone foi usado)
+            + custo_voo × passos_em_movimento
+            + custo_parado × passos_parado
+            + custo_recarga × nº_recargas
+
+custo da missao = soma dos custos de todos os drones
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+5º Topico
+
+As regras temporais definem como o tempo avanca e quando cada coisa acontece
+
+Exemplo: se um drone e um intruso chegam ao mesmo nó no mesmo passo, é preciso saber o que se resolve primeiro: a captura ou a fuga. Sem estas regras, o resultado dependeria da ordem do código.
+
+As regras de interacao dizem o que acontece quando os agentes e ambientes se cruzam, como numa captura ou numa porta que fecha
+
+A velocidade diz quantas unidades de distancia um agente percorre em cada passo
+Com isto, sabemos quantos passos demora a atravessar cada aresta
+
+--------------------------------------
+VARIOS AGENTES NO MESMO SITIO
+
+Drones: podem estar no mesmo nó ou aresta, sem colisões. Simplifica o modelo, e a coordenação tenta evitá-lo por ser desperdício.
+Intrusos: também podem estar juntos. 
+Um drone que chegue a um nó com dois intrusos captura ambos. 
+O uso de um drone por captura é uma alternativa mais realista, mas não acrescenta muito.
+--------------------------------------
+DRONE CAPTURADOR
+
+O drone continua na missao logo a seguir a captura, sem custo adicional.
+--------------------------------------
+COMO SE COMPORTA UM DRONE SEM NENHUMA TAREFA ? 
+
+Fica em patrulha. continua se a mover por zonas pouco visitadas até surgir uma detecao
+--------------------------------------
+COMO EVITAR EMPATES ? 
+
+Se 2 drones ou caminhos tiverem empatados, escolhe se por ordem do identificador(id)
