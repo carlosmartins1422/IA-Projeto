@@ -193,3 +193,68 @@ class Ambiente:
                     fila.append(vizinho)
 
         return False
+
+
+
+
+
+    @classmethod
+    def carregar_json(cls, caminho):
+        import json
+
+        with open(caminho, "r", encoding="utf-8") as ficheiro:
+            dados = json.load(ficheiro)
+
+        ambiente = cls()
+
+        # Localizações
+        for local in dados["mapa"]["nos"]:
+            ambiente.adicionar_local(local)
+
+        # Ligações
+        for aresta in dados["mapa"]["arestas"]:
+            ambiente.adicionar_ligacao(
+                aresta["origem"],
+                aresta["destino"],
+                aresta["comprimento"]
+            )
+
+        # Portas
+        for porta in dados["portas"]:
+            ambiente.adicionar_porta(
+                porta["origem"],
+                porta["destino"],
+                porta["aberta"]
+            )
+
+        # Barreiras
+        for barreira in dados["barreiras"]:
+            ambiente.adicionar_barreira(
+                barreira["origem"],
+                barreira["destino"],
+                barreira["ativa"]
+            )
+
+        # Bens
+        for bem in dados["bens"]:
+            ambiente.adicionar_bem(
+                bem["id"],
+                bem["local"],
+                bem["valor"]
+            )
+
+        # Saídas
+        for saida in dados["saidas"]:
+            ambiente.adicionar_saida(saida)
+
+        # Estações de recarga
+        for estacao in dados["recargas"]:
+            ambiente.adicionar_estacao(
+                estacao["id"],
+                estacao["local"]
+            )
+            ambiente.estacoes[estacao["id"]]["disponivel"] = (
+                estacao.get("disponivel", True)
+            )
+
+        return ambiente

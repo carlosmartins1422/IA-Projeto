@@ -1,22 +1,527 @@
 {
-  "_descricao": "ESQUELETO INCOMPLETO: partir do mapa base, adicionar abertura/fecho de portas ou barreiras; garantir evacuação possível; medir replaneamentos.",
+  "_descricao": "Cenario dinamico 6x6: 36 locais, bens centrais, 2 saidas, 3 recargas e eventos de portas/barreiras. Valores experimentais a validar pelo grupo.",
   "id": "dinamico",
   "nivel": "medio",
   "mapa": {
-    "nos": [],
-    "arestas": []
+    "nos": [
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "A5",
+      "A6",
+      "B1",
+      "B2",
+      "B3",
+      "B4",
+      "B5",
+      "B6",
+      "C1",
+      "C2",
+      "C3",
+      "C4",
+      "C5",
+      "C6",
+      "D1",
+      "D2",
+      "D3",
+      "D4",
+      "D5",
+      "D6",
+      "E1",
+      "E2",
+      "E3",
+      "E4",
+      "E5",
+      "E6",
+      "F1",
+      "F2",
+      "F3",
+      "F4",
+      "F5",
+      "F6"
+    ],
+    "arestas": [
+      {
+        "origem": "A1",
+        "destino": "A2",
+        "comprimento": 3
+      },
+      {
+        "origem": "A1",
+        "destino": "B1",
+        "comprimento": 4
+      },
+      {
+        "origem": "A2",
+        "destino": "A3",
+        "comprimento": 4
+      },
+      {
+        "origem": "A2",
+        "destino": "B2",
+        "comprimento": 2
+      },
+      {
+        "origem": "A3",
+        "destino": "B3",
+        "comprimento": 3
+      },
+      {
+        "origem": "A4",
+        "destino": "A5",
+        "comprimento": 3
+      },
+      {
+        "origem": "A4",
+        "destino": "B4",
+        "comprimento": 4
+      },
+      {
+        "origem": "A5",
+        "destino": "A6",
+        "comprimento": 4
+      },
+      {
+        "origem": "A5",
+        "destino": "B5",
+        "comprimento": 2
+      },
+      {
+        "origem": "A6",
+        "destino": "B6",
+        "comprimento": 3
+      },
+      {
+        "origem": "B1",
+        "destino": "C1",
+        "comprimento": 3
+      },
+      {
+        "origem": "B2",
+        "destino": "B3",
+        "comprimento": 3
+      },
+      {
+        "origem": "B2",
+        "destino": "C2",
+        "comprimento": 4
+      },
+      {
+        "origem": "B3",
+        "destino": "B4",
+        "comprimento": 4
+      },
+      {
+        "origem": "B3",
+        "destino": "C3",
+        "comprimento": 2
+      },
+      {
+        "origem": "B4",
+        "destino": "B5",
+        "comprimento": 2
+      },
+      {
+        "origem": "B4",
+        "destino": "C4",
+        "comprimento": 3
+      },
+      {
+        "origem": "B5",
+        "destino": "B6",
+        "comprimento": 3
+      },
+      {
+        "origem": "B5",
+        "destino": "C5",
+        "comprimento": 4
+      },
+      {
+        "origem": "C1",
+        "destino": "D1",
+        "comprimento": 2
+      },
+      {
+        "origem": "C2",
+        "destino": "C3",
+        "comprimento": 2
+      },
+      {
+        "origem": "C2",
+        "destino": "D2",
+        "comprimento": 3
+      },
+      {
+        "origem": "C3",
+        "destino": "C4",
+        "comprimento": 3
+      },
+      {
+        "origem": "C3",
+        "destino": "D3",
+        "comprimento": 4
+      },
+      {
+        "origem": "C4",
+        "destino": "C5",
+        "comprimento": 4
+      },
+      {
+        "origem": "C4",
+        "destino": "D4",
+        "comprimento": 2
+      },
+      {
+        "origem": "C5",
+        "destino": "C6",
+        "comprimento": 2
+      },
+      {
+        "origem": "C5",
+        "destino": "D5",
+        "comprimento": 3
+      },
+      {
+        "origem": "C6",
+        "destino": "D6",
+        "comprimento": 4
+      },
+      {
+        "origem": "D1",
+        "destino": "E1",
+        "comprimento": 4
+      },
+      {
+        "origem": "D2",
+        "destino": "D3",
+        "comprimento": 4
+      },
+      {
+        "origem": "D2",
+        "destino": "E2",
+        "comprimento": 2
+      },
+      {
+        "origem": "D3",
+        "destino": "D4",
+        "comprimento": 2
+      },
+      {
+        "origem": "D3",
+        "destino": "E3",
+        "comprimento": 3
+      },
+      {
+        "origem": "D4",
+        "destino": "D5",
+        "comprimento": 3
+      },
+      {
+        "origem": "D4",
+        "destino": "E4",
+        "comprimento": 4
+      },
+      {
+        "origem": "D5",
+        "destino": "D6",
+        "comprimento": 4
+      },
+      {
+        "origem": "D5",
+        "destino": "E5",
+        "comprimento": 2
+      },
+      {
+        "origem": "D6",
+        "destino": "E6",
+        "comprimento": 3
+      },
+      {
+        "origem": "E1",
+        "destino": "E2",
+        "comprimento": 2
+      },
+      {
+        "origem": "E1",
+        "destino": "F1",
+        "comprimento": 3
+      },
+      {
+        "origem": "E2",
+        "destino": "E3",
+        "comprimento": 3
+      },
+      {
+        "origem": "E2",
+        "destino": "F2",
+        "comprimento": 4
+      },
+      {
+        "origem": "E3",
+        "destino": "E4",
+        "comprimento": 4
+      },
+      {
+        "origem": "E3",
+        "destino": "F3",
+        "comprimento": 2
+      },
+      {
+        "origem": "E4",
+        "destino": "F4",
+        "comprimento": 3
+      },
+      {
+        "origem": "E5",
+        "destino": "E6",
+        "comprimento": 3
+      },
+      {
+        "origem": "E5",
+        "destino": "F5",
+        "comprimento": 4
+      },
+      {
+        "origem": "F1",
+        "destino": "F2",
+        "comprimento": 4
+      },
+      {
+        "origem": "F2",
+        "destino": "F3",
+        "comprimento": 2
+      },
+      {
+        "origem": "F4",
+        "destino": "F5",
+        "comprimento": 4
+      },
+      {
+        "origem": "F5",
+        "destino": "F6",
+        "comprimento": 2
+      }
+    ]
   },
-  "portas": [],
-  "barreiras": [],
-  "bens": [],
-  "saidas": [],
-  "recargas": [],
-  "drones": [],
-  "intrusos": [],
-  "eventos": [],
+  "portas": [
+    {
+      "origem": "B3",
+      "destino": "C3",
+      "aberta": true
+    },
+    {
+      "origem": "B4",
+      "destino": "C4",
+      "aberta": true
+    },
+    {
+      "origem": "C2",
+      "destino": "C3",
+      "aberta": true
+    },
+    {
+      "origem": "D4",
+      "destino": "D5",
+      "aberta": true
+    },
+    {
+      "origem": "E3",
+      "destino": "E4",
+      "aberta": false
+    },
+    {
+      "origem": "E5",
+      "destino": "F5",
+      "aberta": true
+    }
+  ],
+  "barreiras": [
+    {
+      "origem": "C4",
+      "destino": "C5",
+      "ativa": false
+    },
+    {
+      "origem": "D2",
+      "destino": "D3",
+      "ativa": false
+    },
+    {
+      "origem": "D5",
+      "destino": "E5",
+      "ativa": false
+    },
+    {
+      "origem": "B5",
+      "destino": "B6",
+      "ativa": false
+    }
+  ],
+  "bens": [
+    {
+      "id": "B1",
+      "local": "C3",
+      "valor": 120
+    },
+    {
+      "id": "B2",
+      "local": "C4",
+      "valor": 180
+    },
+    {
+      "id": "B3",
+      "local": "D3",
+      "valor": 150
+    },
+    {
+      "id": "B4",
+      "local": "D4",
+      "valor": 200
+    }
+  ],
+  "saidas": [
+    "A6",
+    "F1"
+  ],
+  "recargas": [
+    {
+      "id": "R1",
+      "local": "B2",
+      "disponivel": true
+    },
+    {
+      "id": "R2",
+      "local": "D5",
+      "disponivel": true
+    },
+    {
+      "id": "R3",
+      "local": "E2",
+      "disponivel": true
+    }
+  ],
+  "drones": [
+    {
+      "id": "D1",
+      "posicao": "A2",
+      "velocidade": 2,
+      "energia_atual": 100,
+      "energia_max": 100,
+      "consumo_movimento": 2,
+      "consumo_parado": 0.5,
+      "taxa_recarga": 10,
+      "custo_ativacao": 5,
+      "custo_voo": 2,
+      "custo_parado": 0.5,
+      "custo_recarga": 1,
+      "tarefa": null
+    },
+    {
+      "id": "D2",
+      "posicao": "E2",
+      "velocidade": 2,
+      "energia_atual": 100,
+      "energia_max": 100,
+      "consumo_movimento": 2,
+      "consumo_parado": 0.5,
+      "taxa_recarga": 10,
+      "custo_ativacao": 5,
+      "custo_voo": 2,
+      "custo_parado": 0.5,
+      "custo_recarga": 1,
+      "tarefa": null
+    },
+    {
+      "id": "D3",
+      "posicao": "D6",
+      "velocidade": 3,
+      "energia_atual": 100,
+      "energia_max": 100,
+      "consumo_movimento": 2,
+      "consumo_parado": 0.5,
+      "taxa_recarga": 10,
+      "custo_ativacao": 5,
+      "custo_voo": 2,
+      "custo_parado": 0.5,
+      "custo_recarga": 1,
+      "tarefa": null
+    }
+  ],
+  "intrusos": [
+    {
+      "id": "I1",
+      "posicao": "B6",
+      "velocidade": 1,
+      "perfil": "recolhedor",
+      "bens_recolhidos": [],
+      "estado": "ativo",
+      "tempo_entrada": 0
+    },
+    {
+      "id": "I2",
+      "posicao": "F4",
+      "velocidade": 2,
+      "perfil": "oportunista",
+      "bens_recolhidos": [],
+      "estado": "ativo",
+      "tempo_entrada": 0
+    }
+  ],
+  "eventos": [
+    {
+      "tempo": 8,
+      "tipo": "porta",
+      "origem": "B3",
+      "destino": "C3",
+      "aberta": false
+    },
+    {
+      "tempo": 12,
+      "tipo": "barreira",
+      "origem": "C4",
+      "destino": "C5",
+      "ativa": true
+    },
+    {
+      "tempo": 16,
+      "tipo": "porta",
+      "origem": "B3",
+      "destino": "C3",
+      "aberta": true
+    },
+    {
+      "tempo": 20,
+      "tipo": "porta",
+      "origem": "E3",
+      "destino": "E4",
+      "aberta": true
+    },
+    {
+      "tempo": 26,
+      "tipo": "barreira",
+      "origem": "C4",
+      "destino": "C5",
+      "ativa": false
+    },
+    {
+      "tempo": 32,
+      "tipo": "porta",
+      "origem": "D4",
+      "destino": "D5",
+      "aberta": false
+    },
+    {
+      "tempo": 38,
+      "tipo": "porta",
+      "origem": "D4",
+      "destino": "D5",
+      "aberta": true
+    }
+  ],
   "parametros": {
-    "passo_tempo": null,
-    "duracao_maxima": null,
-    "seed": null
+    "passo_tempo": 1,
+    "duracao_maxima": 100,
+    "seed": 42
   }
 }
