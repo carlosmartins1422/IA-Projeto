@@ -9,12 +9,12 @@ FASE 1 — FORMULAR O PROBLEMA E DEFINIR AS REGRAS
 [X] Definir as regras temporais e de interação: velocidades diferentes, ordem das ações, deteção, captura, fuga, limites de duração e replaneamento.
 
 FASE 2 — CONSTRUIR O MAPA, OS AGENTES E A PROCURA BÁSICA
-[ ] Implementar o edifício como grafo de localizações e ligações com custos, incluindo portas, barreiras, bens, saídas e estações de recarga. (ambiente.py)
-[ ] Criar um cenário pequeno e estático com um drone e um intruso, com pelo menos uma rota de evacuação válida. (cenarios/01_basico.json)
-[ ] Implementar drones com posição, velocidade, autonomia e custo operacional, permitindo características distintas. (agentes.py)
-[ ] Implementar intrusos com posição, velocidade, bens recolhidos e objetivo de recolha/fuga. (agentes.py)
-[ ] Implementar BFS como algoritmo de procura não informada, devolvendo percurso, sucesso e nós explorados. (procura.py)
-[ ] Implementar A* como algoritmo de procura informada, com uma heurística de referência e custos de deslocação. (procura.py; heuristicas.py)
+[X] Implementar o edifício como grafo de localizações e ligações com custos, incluindo portas, barreiras, bens, saídas e estações de recarga. (ambiente.py)
+[X] Criar um cenário pequeno e estático com um drone e um intruso, com pelo menos uma rota de evacuação válida. (cenarios/01_basico.json)
+[X] Implementar drones com posição, velocidade, autonomia e custo operacional, permitindo características distintas. (agentes.py)
+[X] Implementar intrusos com posição, velocidade, bens recolhidos e objetivo de recolha/fuga. (agentes.py)
+[X] Implementar BFS como algoritmo de procura não informada, devolvendo percurso, sucesso e nós explorados. (procura.py)
+[X] Implementar A* como algoritmo de procura informada, com uma heurística de referência e custos de deslocação. (procura.py; heuristicas.py)
 [ ] Testar BFS e A* em grafos pequenos, incluindo caminhos indisponíveis e custos diferentes; não assumir que BFS minimiza custos variáveis. (testes/test_procura.py)
 [ ] Implementar perseguição direta simples como estratégia de referência dos drones. (coordenacao.py)
 

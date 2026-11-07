@@ -360,22 +360,22 @@
   ],
   "bens": [
     {
-      "id": "B1",
+      "id": "BEM1",
       "local": "C3",
       "valor": 120
     },
     {
-      "id": "B2",
+      "id": "BEM2",
       "local": "C4",
       "valor": 180
     },
     {
-      "id": "B3",
+      "id": "BEM3",
       "local": "D3",
       "valor": 150
     },
     {
-      "id": "B4",
+      "id": "BEM4",
       "local": "D4",
       "valor": 200
     }
@@ -403,7 +403,7 @@
   ],
   "drones": [
     {
-      "id": "D1",
+      "id": "DR1",
       "posicao": "A2",
       "velocidade": 2,
       "energia_atual": 100,
@@ -418,7 +418,7 @@
       "tarefa": null
     },
     {
-      "id": "D2",
+      "id": "DR2",
       "posicao": "E2",
       "velocidade": 2,
       "energia_atual": 100,
@@ -433,7 +433,7 @@
       "tarefa": null
     },
     {
-      "id": "D3",
+      "id": "DR3",
       "posicao": "D6",
       "velocidade": 3,
       "energia_atual": 100,
@@ -450,7 +450,7 @@
   ],
   "intrusos": [
     {
-      "id": "I1",
+      "id": "IN1",
       "posicao": "B6",
       "velocidade": 1,
       "perfil": "recolhedor",
@@ -459,7 +459,7 @@
       "tempo_entrada": 0
     },
     {
-      "id": "I2",
+      "id": "IN2",
       "posicao": "F4",
       "velocidade": 2,
       "perfil": "oportunista",

@@ -1,22 +1,74 @@
 {
-  "_descricao": "ESQUELETO INCOMPLETO: criar um mapa pequeno, estático, com 1 drone, 1 intruso, bens, saída e recarga. Não é um cenário executável ainda.",
+  "_descricao": "Cenario basico, pequeno e estatico: 8 locais, 1 drone, 1 intruso, 2 bens, 1 saida e 1 estacao de recarga. Sem eventos. Ha duas rotas de evacuacao (via SalaCofre e via Arquivo).",
   "id": "basico",
   "nivel": "facil",
   "mapa": {
-    "nos": [],
-    "arestas": []
+    "nos": [
+      "Entrada",
+      "Hall",
+      "CorredorA",
+      "CorredorB",
+      "SalaCofre",
+      "Arquivo",
+      "Saida",
+      "Recarga"
+    ],
+    "arestas": [
+      { "origem": "Entrada",   "destino": "Hall",      "comprimento": 2 },
+      { "origem": "Hall",      "destino": "CorredorA", "comprimento": 3 },
+      { "origem": "Hall",      "destino": "CorredorB", "comprimento": 4 },
+      { "origem": "Hall",      "destino": "Recarga",   "comprimento": 2 },
+      { "origem": "CorredorA", "destino": "CorredorB", "comprimento": 2 },
+      { "origem": "CorredorA", "destino": "SalaCofre", "comprimento": 3 },
+      { "origem": "CorredorB", "destino": "Arquivo",   "comprimento": 2 },
+      { "origem": "SalaCofre", "destino": "Saida",     "comprimento": 4 },
+      { "origem": "Arquivo",   "destino": "Saida",     "comprimento": 5 }
+    ]
   },
-  "portas": [],
+  "portas": [
+    { "origem": "CorredorA", "destino": "SalaCofre", "aberta": true }
+  ],
   "barreiras": [],
-  "bens": [],
-  "saidas": [],
-  "recargas": [],
-  "drones": [],
-  "intrusos": [],
+  "bens": [
+    { "id": "BEM1", "local": "SalaCofre", "valor": 100 },
+    { "id": "BEM2", "local": "Arquivo",   "valor": 50 }
+  ],
+  "saidas": ["Saida"],
+  "recargas": [
+    { "id": "EST1", "local": "Recarga", "disponivel": true }
+  ],
+  "drones": [
+    {
+      "id": "DR1",
+      "posicao": "Recarga",
+      "velocidade": 2,
+      "energia_atual": 100,
+      "energia_max": 100,
+      "consumo_movimento": 2,
+      "consumo_parado": 0.5,
+      "taxa_recarga": 10,
+      "custo_ativacao": 5,
+      "custo_voo": 2,
+      "custo_parado": 0.5,
+      "custo_recarga": 1,
+      "tarefa": null
+    }
+  ],
+  "intrusos": [
+    {
+      "id": "IN1",
+      "posicao": "Entrada",
+      "velocidade": 1,
+      "perfil": "recolhedor",
+      "bens_recolhidos": [],
+      "estado": "ativo",
+      "tempo_entrada": 0
+    }
+  ],
   "eventos": [],
   "parametros": {
-    "passo_tempo": null,
-    "duracao_maxima": null,
-    "seed": null
+    "passo_tempo": 1,
+    "duracao_maxima": 60,
+    "seed": 1
   }
 }
