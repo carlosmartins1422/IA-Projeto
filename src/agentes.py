@@ -11,7 +11,8 @@ class Drone:
         consumo_movimento, consumo_parado,
         taxa_recarga,
         custo_ativacao, custo_voo,
-        custo_parado, custo_recarga
+        custo_parado, custo_recarga,
+        alcance_deteccao=2
     ):
         self.id = id
         self.posicao = posicao
@@ -29,6 +30,9 @@ class Drone:
         self.custo_voo = custo_voo
         self.custo_parado = custo_parado
         self.custo_recarga = custo_recarga
+
+        # Deteção: nº máximo de saltos (arestas) a que o drone vê um intruso
+        self.alcance_deteccao = alcance_deteccao
 
         # Estado da missão
         self.tarefa = None

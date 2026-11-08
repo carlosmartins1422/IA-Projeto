@@ -51,6 +51,7 @@
       "custo_voo": 2,
       "custo_parado": 0.5,
       "custo_recarga": 1,
+      "alcance_deteccao": 3,
       "tarefa": null
     }
   ],

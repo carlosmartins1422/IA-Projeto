@@ -15,8 +15,8 @@ FASE 2 — CONSTRUIR O MAPA, OS AGENTES E A PROCURA BÁSICA
 [X] Implementar intrusos com posição, velocidade, bens recolhidos e objetivo de recolha/fuga. (agentes.py)
 [X] Implementar BFS como algoritmo de procura não informada, devolvendo percurso, sucesso e nós explorados. (procura.py)
 [X] Implementar A* como algoritmo de procura informada, com uma heurística de referência e custos de deslocação. (procura.py; heuristicas.py)
-[ ] Testar BFS e A* em grafos pequenos, incluindo caminhos indisponíveis e custos diferentes; não assumir que BFS minimiza custos variáveis. (testes/test_procura.py)
-[ ] Implementar perseguição direta simples como estratégia de referência dos drones. (coordenacao.py)
+[X] Testar BFS e A* em grafos pequenos, incluindo caminhos indisponíveis e custos diferentes; não assumir que BFS minimiza custos variáveis. (testes/test_procura.py)
+[X] Implementar perseguição direta simples como estratégia de referência dos drones. (coordenacao.py)
 
 FASE 3 — FAZER FUNCIONAR O SIMULADOR DINÂMICO
 [ ] Implementar o ciclo da simulação, com avanço do tempo e atualização da posição dos agentes de acordo com as respetivas velocidades. (simulacao.py)
