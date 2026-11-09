@@ -333,14 +333,14 @@
     {
       "origem": "E5",
       "destino": "F5",
-      "aberta": true
+      "aberta": false
     }
   ],
   "barreiras": [
     {
       "origem": "C4",
       "destino": "C5",
-      "ativa": false
+      "ativa": true
     },
     {
       "origem": "D2",
