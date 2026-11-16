@@ -308,7 +308,7 @@
     {
       "origem": "B3",
       "destino": "C3",
-      "aberta": true
+      "aberta": false
     },
     {
       "origem": "B4",
