@@ -1,0 +1,29 @@
+FASE 3 — DECISÕES (ponto 1: ciclo da simulação e movimento)
+
+1) Modelo de tempo: passos discretos. Cada travessia de aresta demora
+   ceil(comprimento / velocidade) passos (mesma fórmula do custo da procura,
+   decisão da Fase 1), por isso o tempo simulado de um percurso = g(caminho) do A*.
+
+2) Posição durante a travessia: o agente mantém a posição do nó de origem até
+   chegar ao destino (modelo "fica em trânsito e chega a v" da Fase 1).
+   Não há posições fracionárias nem "nós intermédios".
+
+3) Ordem de um passo:
+   tempo += 1 -> [eventos, deteção/captura/fuga: por implementar]
+   -> travessias em curso avançam (chegadas, por ordem de id)
+   -> quem está parado com percurso inicia a travessia seguinte
+   -> [recolha de bens, energia e recarga: por implementar]
+   Quem chega no passo t começa logo a aresta seguinte em t (sem passo "perdido").
+
+4) Aresta bloqueada (porta fechada/barreira ativa) no momento de partir:
+   o agente espera no nó e tenta de novo em cada passo; o bloqueio fica registado
+   uma só vez. O REPLANEAMENTO (ponto seguinte da Fase 3) vai usar este sinal.
+
+5) Replanear a meio de uma aresta: só é possível a partir do nó de destino da
+   travessia em curso (ponto_de_decisao). Invariante: em trânsito, percurso[0]
+   é o destino da travessia atual.
+
+6) Fim da missão: nenhum intruso "ativo" OU tempo >= duracao_maxima.
+   (Atenção: uma simulação sem intrusos ativos está terminada à partida.)
+
+7) Desempate: agentes processados por ordem de id.

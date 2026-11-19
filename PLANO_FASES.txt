@@ -19,7 +19,7 @@ FASE 2 — CONSTRUIR O MAPA, OS AGENTES E A PROCURA BÁSICA
 [X] Implementar perseguição direta simples como estratégia de referência dos drones. (coordenacao.py)
 
 FASE 3 — FAZER FUNCIONAR O SIMULADOR DINÂMICO
-[ ] Implementar o ciclo da simulação, com avanço do tempo e atualização da posição dos agentes de acordo com as respetivas velocidades. (simulacao.py)
+[X] Implementar o ciclo da simulação, com avanço do tempo e atualização da posição dos agentes de acordo com as respetivas velocidades. (simulacao.py)
 [ ] Implementar deteção de intrusos, recolha de bens, captura, fuga e resultados finais da missão. (simulacao.py)
 [ ] Implementar consumo de autonomia, custos de operação e deslocação/uso de estações de recarga; considerar a sua disponibilidade. (agentes.py; simulacao.py)
 [ ] Implementar eventos de abertura/fecho de portas e ativação de barreiras, produzindo bloqueios e alternativas de passagem. (ambiente.py; cenarios/02_dinamico.json)
